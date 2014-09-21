@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Welcome to SkyShip | Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script type="application/javascript" >
+        window.onload = function(e){
+            document.getElementById('results').style.display = "none";
+        };
+        function clicked(){
+            document.getElementById('results').style.display = "block";
+        }
+    </script>
+</head>
+<div align="center">
+    <img src="../static/SS.PNG" alt="SkyShip logo" >
+</div>
+<body >
+<div></div>
+    <form name="calculator" method="post">
+        <table class="table">
+            <tbody>
+            <tr>
+                <td>
+                    Monthly Cloud services spending
+                </td>
+                <td>
+                    <input type="text" placeholder="$10,000" name="Infrastructure" value="{{ request.form.infrastructure}}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    How long, in hours, does it take to provision one machine?
+                </td>
+                <td>
+                    <input type="text" placeholder="30" name="timetoprovision" value="{{ request.form.provision}}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    How many machines do you provision a week
+                </td>
+                <td>
+                    <input type="number" placeholder="14" name="provisionhours" value="{{ request.form.provisionhours }}"
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    How much time do you spend working on your backups,logging, or monitoring infrastructure? (Hours)
+                </td>
+                <td>
+                    <input type="text" placeholder="30" name="devtime" value="{{ request.form.devtime }}"
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input class="btn btn-default" type="submit" value="Calculate" onclick="clicked"></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+<div id="results">
+    <table>
+     <tbody>
+     <tr>
+         <td>
+             Total Costs based on your input
+         </td>
+         <td>
+             <label>{%  %}</label>
+         </td>
+         <td>
+             US Dollars/month
+         </td>
+     </tr>
+     <tr>
+         <td>
+             Savings
+         </td>
+         <td>
+                <label></label>
+         </td>
+         <td>
+            <P>
+                Savings earned by being able to setup spin up and spin down times using tool
+            </P>
+         </td>
+     </tr>
+     <tr>
+         <td>
+             Savings on provisioning
+         </td>
+         <td>
+             <label></label>
+         </td>
+         <td>
+             Asynchronous calls and automation through Puppet drastically reduces time to provision
+         </td>
+     </tr>
+     <tr>
+         <td>
+             Savings on Patching
+         </td>
+         <td>
+             <label></label>
+         </td>
+         <td>
+             Handled by the system automatically
+         </td>
+     </tr>
+     <tr>
+         <td>
+             Non Functional Savings (Backup, Monitoring, Logging)
+         </td>
+         <td>
+             <label></label>
+         </td>
+         <td>
+             Battle tested system mean to be operated with minimal input
+         </td>
+     </tr>
+     <tr>
+         <td>
+             Total Savings
+         </td>
+         <td>
+             <label></label>
+         </td>
+         <td>
+             US Dollars
+         </td>
+     </tr>
+     </tbody>
+ </table>
+</div>
+</body>
+</html>
